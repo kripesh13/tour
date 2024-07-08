@@ -5,8 +5,10 @@ import 'package:tour_destiny/Bloc/Login_cubit/login_cubit.dart';
 import 'package:tour_destiny/Bloc/Profile_Bloc/profile_bloc.dart';
 import 'package:tour_destiny/Bloc/Theme_Bloc/theme_bloc.dart';
 import 'package:tour_destiny/Bloc/language_bloc/language_bloc.dart';
+import 'package:tour_destiny/Bloc/review_bloc/review_bloc.dart';
 import 'package:tour_destiny/Models/Repository/auth_repository.dart';
 import 'package:tour_destiny/Models/Repository/get_tours_repositoy.dart';
+import 'package:tour_destiny/Models/Repository/review_repo.dart';
 import 'package:tour_destiny/Models/Repository/top_five_repo.dart';
 import 'package:tour_destiny/Models/Repository/user_repository.dart';
 import 'package:tour_destiny/Models/services/network_service/network_api_services.dart';
@@ -30,6 +32,7 @@ Future<void> init() async {
       () => GetToursRepository(apiServices: sl()));
   sl.registerLazySingleton(() => UserRepositoy(apiServices: sl()));
   sl.registerLazySingleton(() => TopFiveRepository(apiServices: sl()));
+  sl.registerLazySingleton(() => ReviewRepo(apiServices: sl()));
 
 // bloc
 
@@ -41,6 +44,8 @@ Future<void> init() async {
   sl.registerFactory(() => BookingsBloc());
   sl.registerFactory(() => LanguageBloc());
   sl.registerFactory(() => InternetBloc());
+
+  sl.registerFactory(() => ReviewBloc(reviewRepo: sl()));
 
   sl.registerFactory(() => LoginCubit(
         authRepository: sl(),

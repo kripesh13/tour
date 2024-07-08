@@ -4,6 +4,7 @@ import 'package:tour_destiny/Bloc/Login_cubit/login_cubit.dart';
 import 'package:tour_destiny/Bloc/Profile_Bloc/profile_bloc.dart';
 import 'package:tour_destiny/Bloc/Splash_Cubit/splash_cubit.dart';
 import 'package:tour_destiny/Bloc/language_bloc/language_bloc.dart';
+import 'package:tour_destiny/Bloc/review_bloc/review_bloc.dart';
 import 'package:tour_destiny/injection.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../Bloc/Home_Bloc/home_bloc.dart';
@@ -19,11 +20,13 @@ class MultiProviderRoutes {
     BlocProvider(
       create: (_) => di.sl<LoginCubit>(),
     ),
-    BlocProvider(create: (_) => di.sl<InternetBloc>()..add(OnCheckInternetEvent())),
+    BlocProvider(
+        create: (_) => di.sl<InternetBloc>()..add(OnCheckInternetEvent())),
     BlocProvider(create: (_) => BookingsBloc()),
     BlocProvider(create: (_) => SplashCubit()),
     BlocProvider(create: (_) => di.sl<HomeBloc>()),
     BlocProvider(create: (_) => di.sl<ProfileBloc>()),
+    BlocProvider(create: (_) => di.sl<ReviewBloc>()),
     BlocProvider(
       create: (_) => di.sl<ThemeBloc>(),
     ),

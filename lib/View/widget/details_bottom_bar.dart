@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tour_destiny/Bloc/review_bloc/review_bloc.dart';
+import 'package:tour_destiny/Models/services/network_response/api_response.dart';
 import 'package:tour_destiny/Models/services/toast_service.dart';
 import 'package:tour_destiny/utils/constant/theme_container.dart';
 import 'package:tour_destiny/View/widget/tours_tiles.dart';
@@ -9,6 +11,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../data/cart/cart_box.dart';
 import '../../data/cart/cart_details.dart';
+import '../../utils/constant/data_status.dart';
 
 class DetailsBottomBar extends StatelessWidget {
   String? name;
@@ -130,9 +133,9 @@ class DetailsBottomBar extends StatelessWidget {
                     slug: des ?? 'N/A',
                     image: image ?? '',
                   );
-              
+
                   final box = CartBoxes.getData();
-              
+
                   bool isItemAlreadyAdded = false;
                   for (var element in box.values) {
                     if (element.name == data.name) {
@@ -140,10 +143,9 @@ class DetailsBottomBar extends StatelessWidget {
                       break;
                     }
                   }
-              
+
                   if (isItemAlreadyAdded) {
-                    ToastService()
-                        .e('This item is already added in the list');
+                    ToastService().e('This item is already added in the list');
                   } else {
                     await box.add(data);
                     data.save();
@@ -153,11 +155,9 @@ class DetailsBottomBar extends StatelessWidget {
                     print(data.slug);
                     print(data.quantity);
                   }
-                  
                 },
                 child: Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   decoration: BoxDecoration(
                     color: primaryColor,
                     borderRadius: BorderRadius.circular(10),
@@ -180,6 +180,42 @@ class DetailsBottomBar extends StatelessWidget {
             ],
           ),
           sSizedBox(),
+          // BlocBuilder<ReviewBloc, ReviewState>(
+          //   builder: (context, state) {
+          //     if (state.reviewResponse == null) {
+          //       return Center(child: CircularProgressIndicator());
+          //     }
+
+          //     return CustomDataStatusWidget(
+          //       status: state.reviewResponse.Datastatus!,
+          //       errorStatus:
+          //           Text(state.reviewResponse.message ?? "An error occurred"),
+          //       successStatus: state.reviewResponse.data?.data?.isNotEmpty ==
+          //               true
+          //           ? Column(
+          //               children: state.reviewResponse.data!.data!.map((e) {
+          //                 return ListTile(
+          //                   leading: CircleAvatar(
+          //                     child: e.user?.photo != null
+          //                         ? Image.network(
+          //                             "$tours_url/${e.user!.photo!}")
+          //                         : null,
+          //                   ),
+          //                   title: Column(
+          //                     crossAxisAlignment: CrossAxisAlignment.start,
+          //                     children: [
+          //                       if (e.user?.name != null) Text(e.user!.name!),
+          //                       if (e.review != null) Text(e.review!),
+          //                     ],
+          //                   ),
+          //                   trailing: Text(e.rating?.toString() ?? 'No Rating'),
+          //                 );
+          //               }).toList(),
+          //             )
+          //           : Center(child: Text("No reviews available")),
+          //     );
+          //   },
+          // ),
         ],
       ),
     );
