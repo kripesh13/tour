@@ -219,8 +219,8 @@ class _KTextFormFieldState extends State<KTextFormField> {
               Text(
                 errorText ?? "",
                 textAlign: TextAlign.start,
-                style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                      color: Theme.of(context).errorColor,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.error,
                       // fontSize: AppDimens.headlineFontSizeXXXSmall,
                     ),
               ),

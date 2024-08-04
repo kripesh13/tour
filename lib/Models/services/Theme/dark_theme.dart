@@ -11,8 +11,6 @@ final ThemeData darkTheme = ThemeData(
   ),
   shadowColor: greyColor,
   cardTheme: CardTheme(color: darkGrey, shadowColor: greyColor),
-  // backgroundColor: darkGrey,
-  bottomAppBarColor: Colors.grey[700],
   bottomSheetTheme: BottomSheetThemeData(backgroundColor: greyColor),
   datePickerTheme: DatePickerThemeData(backgroundColor: greyColor),
   indicatorColor: primaryColor,
@@ -76,5 +74,5 @@ final ThemeData darkTheme = ThemeData(
 
     labelLarge:
         TextStyle(color: Colors.white, fontSize: 14), // Button text color
-  ),
+  ), bottomAppBarTheme: BottomAppBarTheme(color: Colors.grey[700]),
 );

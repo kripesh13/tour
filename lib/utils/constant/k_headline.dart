@@ -36,49 +36,49 @@ class KHeadline extends StatelessWidget {
   TextStyle? getTextStyleBySize(BuildContext context, HeadlineSize size) {
     switch (size) {
       case HeadlineSize.xxxSmall:
-        return Theme.of(context).textTheme.bodyText2?.copyWith(
+        return Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeXXXSmall,
               fontWeight: fontWeight,
             );
       case HeadlineSize.xxSmall:
-        return Theme.of(context).textTheme.bodyText2?.copyWith(
+        return Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeXXSmall,
               fontWeight: fontWeight,
             );
       case HeadlineSize.xSmall:
-        return Theme.of(context).textTheme.bodyText2?.copyWith(
+        return Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeXSmall,
               fontWeight: fontWeight,
             );
       case HeadlineSize.small:
-        return Theme.of(context).textTheme.bodyText2?.copyWith(
+        return Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeSmall,
               fontWeight: fontWeight,
             );
       case HeadlineSize.other:
-        return Theme.of(context).textTheme.headline5?.copyWith(
+        return Theme.of(context).textTheme.headlineSmall?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeOther,
               fontWeight: fontWeight,
             );
       case HeadlineSize.medium:
-        return Theme.of(context).textTheme.headline5?.copyWith(
+        return Theme.of(context).textTheme.headlineSmall?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeMedium,
               fontWeight: fontWeight,
             );
       case HeadlineSize.smallMedium:
-        return Theme.of(context).textTheme.headline5?.copyWith(
+        return Theme.of(context).textTheme.headlineSmall?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeSmallMedium,
               fontWeight: fontWeight,
             );
       case HeadlineSize.large:
-        return Theme.of(context).textTheme.headline4?.copyWith(
+        return Theme.of(context).textTheme.headlineMedium?.copyWith(
               color: color,
               fontSize: AppDimens.headlineFontSizeLarge,
               fontWeight: fontWeight,

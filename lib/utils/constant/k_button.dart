@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 // import 'package:myapp/constant/constant.dart';
 
@@ -17,7 +16,7 @@ class KButton extends StatelessWidget {
   final bool isBusy;
   String? variant;
   final bool? bordered;
-  final Color? backgroundColor, foregroundColor,activeColor;
+  final Color? backgroundColor, foregroundColor, activeColor;
   double? radius;
   @override
   KButton({
@@ -90,7 +89,7 @@ class KButton extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(
         textTheme: Theme.of(context).textTheme.copyWith(
-              button: Theme.of(context).textTheme.button?.copyWith(
+              labelLarge: Theme.of(context).textTheme.labelLarge?.copyWith(
                     fontSize: getFontSizeBySize(size),
                   ),
             ),

@@ -67,7 +67,7 @@ class KToast extends StatelessWidget {
           Expanded(
             child: Text(
               message,
-              style: Theme.of(context).textTheme.subtitle2?.copyWith(
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     fontFamily: 'Poppins',
